@@ -186,6 +186,10 @@ RequirementArguments
     { $$ = [$1]; }
   | STRING COMMA RequirementArguments
     { $$ = [$1].concat($3); }
+  | NUMBER
+    { $$ = [$1]; }
+  | NUMBER COMMA RequirementArguments
+    { $$ = [$1].concat($3); }
   ;
 
 %%

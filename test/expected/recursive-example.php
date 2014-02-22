@@ -4,7 +4,7 @@
 use App;
 use Input;
 use Log;
-
+use Str;
 
 class RecursiveExample {
 

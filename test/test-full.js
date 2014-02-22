@@ -34,4 +34,18 @@ describe('Full examples: ', function() {
       callback();
     });
   });
+
+  it('should generate the plain example', function(callback) {
+    var name = 'plain-example';
+    var contents = fs.readFileSync('test/fixtures/' + name + '.val');
+    var source = validator.parser(contents.toString());
+    var generated = validator.generate(name + '.val', source);
+
+    var expected = fs.readFileSync('test/expected/' + name + '.php');
+    mkdirp(path.dirname('tmp/' + name + '.php'), function() {
+      fs.writeFileSync('tmp/' + name + '.php', generated);
+      generated.should.equal(expected.toString());
+      callback();
+    });
+  });
 });

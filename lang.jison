@@ -30,6 +30,12 @@
     this.requirements = requirements;
   }
 
+  function VFloat(name, requirements) {
+    this.type = 'float';
+    this.name = name;
+    this.requirements = requirements;
+  }
+
   function VArray(name, mincount, fields) {
     this.type = 'array';
     this.name = name;
@@ -84,6 +90,7 @@ Rule
   | String
   | Integer
   | Boolean
+  | Float
   ;
 
 Object
@@ -156,6 +163,11 @@ Integer
 Boolean
   : BOOLEAN NAME Requirements
     { $$ = new VBoolean($2, $3); }
+  ;
+
+Float
+  : FLOAT NAME Requirements
+    { $$ = new VFloat($2, $3); }
   ;
 
 Requirements

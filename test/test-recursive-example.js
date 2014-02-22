@@ -14,10 +14,9 @@ describe('Recursive example: ', function() {
     var generated = validator.generate(name + '.val', source);
 
     var expected = fs.readFileSync('test/expected/' + name + '.php');
-    var dest = expected.toString();
     mkdirp(path.dirname('tmp/' + name + '.php'), function() {
-      fs.writeFileSync('tmp/' + name + '.php', dest);
-      generated.should.exactly(dest);
+      fs.writeFileSync('tmp/' + name + '.php', generated);
+      generated.should.equal(expected.toString());
       callback();
     });
   });

@@ -1,0 +1,79 @@
+
+object myobj {
+  string fstring
+
+  object fobj2 {
+    integer finteger
+  }
+}
+
+array farr1 {
+  string fields
+}
+
+array farr {
+  mincount(2)
+  string fields
+}
+
+string params {required}
+
+array farrobj {
+  object {
+    string fstring {required}
+  }
+}
+
+array farr1 {
+  array {
+    array {
+      object fields {
+        boolean inner
+      }
+    }
+  }
+}
+
+string ffoo {store("foo")}
+string fbar {store('bar')}
+
+if ($store['foo'] === 'bar') {
+  object conditional {
+    string fstring
+  }
+}
+
+if (true) {
+  string mystr {required}
+}
+
+if (false) {
+  array myarr {
+   integer fields
+  }
+}
+
+if (false) {
+  object myarr_extended {
+    if ($store['bar'] === 'bar') {
+      object qux {
+        boolean myqux
+      }
+    }
+  }
+}
+
+switch {
+  case ($store['bar'] == 'baz') {
+    string foo {required}
+  }
+
+  case ($store['bar'] == 'qux') {
+    integer foo {positive}
+  }
+}
+
+string example {
+  required
+  in("before,after", "before2,after2")
+}

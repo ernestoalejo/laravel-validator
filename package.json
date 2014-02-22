@@ -1,0 +1,52 @@
+{
+  "name": "laravel-validator",
+  "description": "Generate PHP validations that use Laravel from JS descriptions of the input data format",
+  "version": "0.6.0",
+  "homepage": "https://github.com/ernestoalejo/laravel-validator",
+  "author": {
+    "name": "Ernesto Alejo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ernestoalejo/laravel-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ernestoalejo/laravel-validator/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ernestoalejo/laravel-validator/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "devDependencies": {
+    "jshint-stylish": "~0.1.5",
+    "gulp-jshint": "~1.4.2",
+    "gulp": "~3.5.2",
+    "gulp-mocha": "~0.4.1",
+    "gulp-watch": "~0.5.0",
+    "through2": "~0.4.1",
+    "gulp-filter": "~0.3.0",
+    "lex": "~1.7.4",
+    "jison": "~0.4.13",
+    "gulp-util": "~2.2.14",
+    "should": "~3.1.2",
+    "clean": "~2.1.6",
+    "mkdirp": "~0.3.5"
+  },
+  "keywords": [
+    "laravel",
+    "validator"
+  ],
+  "dependencies": {
+    "underscore": "~1.6.0",
+    "underscore.string": "~2.3.3"
+  }
+}

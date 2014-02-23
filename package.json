@@ -1,6 +1,6 @@
 {
   "name": "laravel-validator",
-  "description": "Generate PHP validations that use Laravel from JS descriptions of the input data format",
+  "description": "Generate PHP validations from short and concise descriptions of the input format.",
   "version": "0.1.0",
   "homepage": "https://github.com/ernestoalejo/laravel-validator",
   "author": {

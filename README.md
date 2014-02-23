@@ -19,6 +19,9 @@ a stricter and statically generated alternative to it.
 npm install --save-dev laravel-validator
 ```
 
+There are plugins for [Grunt](https://github.com/ernestoalejo/grunt-laravel-validator)
+and [Gulp](https://github.com/ernestoalejo/gulp-laravel-validator).
+
 
 ## <a name="getting-started"></a> Getting started
 
@@ -51,7 +54,7 @@ the `composer.json` file:
   "psr-0": {
     "Validators": "app/lib"
   }
-},
+}
 ```
 
 To use it in PHP:
@@ -107,6 +110,8 @@ for a field between braces.
 
 Some requirements receive arguments (like the minlength one). You can pass integer
 and string literals in a function-like way.
+
+String literals can be wrapper with simple `'` and double quotes `"`.
 
 ```
 string foo {required minlength(3)}
@@ -301,3 +306,215 @@ string bar
 
 
 ## <a name="requirements-reference"></a> Requirements reference
+
+ * [custom](#custom)
+ * [datetime](#datetime)
+ * [email](#email)
+ * [in](#in)
+ * [inarray](#inarray)
+ * [length](#length)
+ * [match](#match)
+ * [maxdatetime](#maxdatetime)
+ * [maxlength](#maxlength)
+ * [maxvalue](#maxvalue)
+ * [mindatetime](#mindatetime)
+ * [minlength](#minlength)
+ * [minvalue](#minvalue)
+ * [positive](#positive)
+ * [regexp](#regexp)
+ * [required](#required)
+ * [store](#store)
+ * [url](#url)
+ * [use](#use)
+
+
+### <a name="custom"></a> custom
+*Applies to*: `string`, `boolean`, `integer`, `float`.
+*Args*: `code (string)`.
+*Requires*: `store`
+
+Allows you to apply custom validations **to this field**. If you want to apply more
+general conditions use [Conditionals](#conditionals) better.
+
+It requires that you store first the value of the field.
+
+The argument received should be valid PHP code.
+
+```
+string myfield {
+  required
+  minlength(3)
+
+  store("myfield")
+
+  custom("$store['myfield'] === 'foo'")
+}
+```
+
+
+### <a name="datetime"></a> datetime
+*Applies to*: `string`.
+*Args*: `no args`.
+
+Checks that the field it's a valid datetime. It uses the Carbon library, so the
+expected formats are any of the accepted ones by the constructor.
+
+
+### <a name="email"></a> email
+*Applies to*: `string`.
+*Args*: `no args`.
+
+Validates email addresses using the same regular expression that Angular.JS uses.
+
+
+### <a name="in"></a> in
+*Applies to*: `string`.
+*Args*: `values (string)`.
+
+Checks that the received string is one of the provided. You can specify as many
+arguments as you need.
+
+```
+string foo {
+  in("foo")
+}
+
+string foobar {
+  in("foo", "bar", "baz", "qux")
+}
+```
+
+
+### <a name="inarray"></a> inarray
+*Applies to*: `string`.
+*Args*: `array name (string)`.
+
+The same as `in`, but allows you to easily read a runtime array for the list.
+
+```
+string lang {
+  required
+  use("Config")
+  inarray("Config::get('langs.available')")
+}
+```
+
+
+### <a name="length"></a> length
+*Applies to*: `string`.
+*Args*: `length (integer)`.
+
+The length of the string should match exactly that number of characters.
+
+
+### <a name="match"></a> match
+*Applies to*: `string`.
+*Args*: `stored (string)`.
+
+Checks that the value matchs a previously stored one.
+
+
+### <a name="maxdatetime"></a> maxdatetime
+*Applies to*: `string`.
+*Args*: `datetime (string)`.
+*Requires*: `datetime`.
+
+Check value to see if it's equal or before the specified limit. Datetime could be any
+string that the Carbon constructor can read.
+
+
+### <a name="maxlength"></a> maxlength
+*Applies to*: `string`.
+*Args*: `length (integer)`.
+
+Checks that the string has less or equal characters than the maximum.
+
+
+### <a name="maxvalue"></a> maxvalue
+*Applies to*: `integer`, `float`.
+*Args*: `limit (integer)`.
+
+Checks that the field value it's less or equal than the provided limit (it's inclusive).
+
+
+### <a name="mindatetime"></a> mindatetime
+*Applies to*: `string`.
+*Args*: `datetime (string)`.
+*Requires*: `datetime`.
+
+Check value to see if it's equal or after the specified limit. Datetime could be any
+string that the Carbon constructor can read.
+
+
+### <a name="minlength"></a> minlength
+*Applies to*: `string`.
+*Args*: `length (integer)`.
+
+If the string is not empty, it should have at least that number of characters.
+To check for empty strings use the `required` requirement.
+
+
+### <a name="minvalue"></a> minvalue
+*Applies to*: `integer`, `float`.
+*Args*: `limit (integer)`.
+
+Checks that the field value it's equal or greater than the provided limit (it's inclusive).
+
+
+### <a name="positive"></a> positive
+*Applies to*: `integer`, `float`.
+*Args*: `no args`.
+
+Checks the value to see if it's equal or greater than zero. It's equivalent to `minvalue(0)`.
+
+
+### <a name="regexp"></a> regexp
+*Applies to*: `string`.
+*Args*: `regexp (string)`.
+
+Apply a regexp to the value to see if it matches. Remember the regexp should be valid in PHP.
+
+```
+string myfield {regexp("/[a-z][0-9]/")}
+```
+
+### <a name="required"></a> required
+*Applies to*: `string`.
+*Args*: `no args`.
+
+The string should have one or more characters.
+
+
+### <a name="store"></a> store
+*Applies to*: `string`, `integer`, `float`, `boolean`.
+*Args*: `name (string)`.
+
+Save the value of this field in the `$store` array, under the provided name. You
+can later access it in conditionals and switchs like `$store['name']`.
+
+See [Conditionals](#conditionals) for more info.
+
+
+### <a name="url"></a> url
+*Applies to*: `string`.
+*Args*: `no args`.
+
+Validate URLs using the same regular expression Angular.JS uses.
+
+
+### <a name="use"></a> use
+*Applies to*: `string`, `boolean`, `integer`, `float`.
+*Args*: `class (string)`.
+
+Imports a new class into the runtime PHP file.
+
+```
+string lang {
+  required
+  use("Config")
+  store("lang")
+  custom("Config::get('langs.' . $store['lang']) === 'active'")
+}
+```
+
+

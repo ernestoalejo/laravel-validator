@@ -34,12 +34,11 @@
     "gulp-watch": "~0.5.0",
     "through2": "~0.4.1",
     "gulp-filter": "~0.3.0",
-    "lex": "~1.7.4",
     "jison": "~0.4.13",
     "gulp-util": "~2.2.14",
     "should": "~3.1.2",
-    "clean": "~2.1.6",
-    "mkdirp": "~0.3.5"
+    "mkdirp": "~0.3.5",
+    "gulp-clean": "~0.2.4"
   },
   "keywords": [
     "laravel",
@@ -47,6 +46,7 @@
   ],
   "dependencies": {
     "underscore": "~1.6.0",
-    "underscore.string": "~2.3.3"
+    "underscore.string": "~2.3.3",
+    "lex": "~1.7.4"
   }
 }

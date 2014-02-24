@@ -1,5 +1,5 @@
 
-v1.3 [22 Feb 2014]
+v0.1.3 [22 Feb 2014]
 ==================
 
  * Minor fixes in tests and linting the code.

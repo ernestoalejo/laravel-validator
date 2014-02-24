@@ -15,7 +15,7 @@ gulp.task('default', ['watch', 'jison']);
 gulp.task('clean', function() {
   return gulp.src('tmp/**', {read: false})
     .pipe(clean());
-})
+});
 
 gulp.task('lint', function() {
   return gulp.src(['gulpfile.js', 'test/**/*.js', 'lib/**/*.js'])
@@ -57,4 +57,4 @@ gulp.task('jison', function() {
         callback();
       });
     }));
-})
+});

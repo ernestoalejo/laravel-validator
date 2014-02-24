@@ -14,6 +14,8 @@
     "undef": true,
     "unused": true,
     "globals": {
-        "require": false
+        "require": false,
+        "describe": false,
+        "it": false
     }
 }

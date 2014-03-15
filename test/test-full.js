@@ -44,7 +44,7 @@ describe('Full examples: ', function() {
     });
   });
 
-  it.only('should generate the subfolder example', function(callback) {
+  it('should generate the subfolder example', function(callback) {
     var name = 'subfolder/example';
     var generated = validator.generate('test/fixtures', 'test/fixtures/' + name + '.js');
 

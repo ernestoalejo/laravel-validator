@@ -1,1 +1,1 @@
-    $<%= result %>[<%= name %>] = $value;
+      $<%= result %>[<%= name %>] = $value;

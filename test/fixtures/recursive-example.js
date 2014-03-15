@@ -43,7 +43,7 @@ module.exports = function(validator) {
             .fields(function(farr3) {
               farr3.objects()
                 .fields(function(obj) {
-                  obj.integer('inner');
+                  obj.boolean('inner');
                 });
             });
         });

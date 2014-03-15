@@ -32,7 +32,7 @@ describe('Full examples: ', function() {
     });
   });
 
-  it.only('should generate the plain example', function(callback) {
+  it('should generate the plain example', function(callback) {
     var name = 'plain-example';
     var generated = validator.generate('test/fixtures', 'test/fixtures/' + name + '.js');
 
@@ -44,7 +44,7 @@ describe('Full examples: ', function() {
     });
   });
 
-  it('should generate the subfolder example', function(callback) {
+  it.only('should generate the subfolder example', function(callback) {
     var name = 'subfolder/example';
     var generated = validator.generate('test/fixtures', 'test/fixtures/' + name + '.js');
 

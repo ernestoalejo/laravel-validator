@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     clean = require('gulp-clean');
 
-gulp.task('default', ['watch', 'jison']);
+gulp.task('default', ['watch']);
 
 gulp.task('clean', function() {
   return gulp.src('tmp/**', {read: false})
@@ -30,7 +30,7 @@ gulp.task('test', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
-  return gulp.src(['lang.js', 'lib/**/*.js', 'test/**'], {read: false})
+  return gulp.src(['lib/**/*.js', 'test/**'], {read: false})
     .pipe(watch({emit: 'all'}, function(files) {
       files
         .pipe(gulpFilter('test-*.js'))
@@ -40,21 +40,5 @@ gulp.task('watch', function() {
             console.log(err.stack);
           }
         });
-    }));
-});
-
-gulp.task('jison', function() {
-  return gulp.src('lang.jison')
-    .pipe(watch())
-    .pipe(through.obj(function(file, enc, callback) {
-      exec('jison lang.jison', function(error, stdout, stderr) {
-        if (error) {
-          gutil.log(gutil.colors.red(stdout));
-          gutil.log(gutil.colors.red(stderr));
-        } else {
-          gutil.log(gutil.colors.green('Parser generated!'));
-        }
-        callback();
-      });
     }));
 });

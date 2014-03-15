@@ -1,2 +1,0 @@
-
-string myname {required minlength(3)}

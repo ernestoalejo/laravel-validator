@@ -32,10 +32,7 @@
     "gulp": "~3.5.2",
     "gulp-mocha": "~0.4.1",
     "gulp-watch": "~0.5.0",
-    "through2": "~0.4.1",
     "gulp-filter": "~0.3.0",
-    "jison": "~0.4.13",
-    "gulp-util": "~2.2.14",
     "mkdirp": "~0.3.5",
     "gulp-clean": "~0.2.4",
     "expect.js": "~0.3.1"

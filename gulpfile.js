@@ -4,10 +4,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     mocha = require('gulp-mocha'),
     watch = require('gulp-watch'),
-    through = require('through2'),
     gulpFilter = require('gulp-filter'),
-    exec = require('child_process').exec,
-    gutil = require('gulp-util'),
     clean = require('gulp-clean');
 
 gulp.task('default', ['watch']);

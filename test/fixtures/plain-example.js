@@ -13,7 +13,7 @@ module.exports = function(validator) {
   validator.string('fstringv')
     .email()
     .url()
-    .regexp("/^[a-b]$/")
+    .regexp('/^[a-b]$/')
     .length(3)
     .minlength(4)
     .maxlength(5)

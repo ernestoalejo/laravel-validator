@@ -43,7 +43,6 @@
   ],
   "dependencies": {
     "underscore": "~1.6.0",
-    "underscore.string": "~2.3.3",
-    "lex": "~1.7.4"
+    "underscore.string": "~2.3.3"
   }
 }

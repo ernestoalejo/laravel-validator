@@ -1,4 +1,10 @@
 
+v1.0.3 [01 Apr 2014]
+====================
+
+ * Remove dependency on unused lex package.
+
+
 v1.0.2 [15 Mar 2014]
 ====================
 

@@ -1,7 +1,7 @@
 {
   "name": "laravel-validator",
   "description": "Generate PHP validations from short and concise descriptions of the input format.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/ernestoalejo/laravel-validator",
   "author": {
     "name": "Ernesto Alejo"

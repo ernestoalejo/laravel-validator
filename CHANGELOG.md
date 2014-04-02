@@ -1,4 +1,10 @@
 
+v1.0.4 [02 Apr 2014]
+====================
+
+ * Fix generation of namespaces making a regexp global.
+
+
 v1.0.3 [01 Apr 2014]
 ====================
 
